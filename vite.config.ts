@@ -24,5 +24,14 @@ export default defineConfig({
         additionalData: '@import "@/styles/variables.scss";'
       }
     }
+  },
+  server: {
+    proxy: {
+      '/admin': {
+        target: 'https://shop.fed.lagou.com/api', // 代理的目标地址
+        changeOrigin: true, // 虚拟主机
+        // rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
   }
 })
