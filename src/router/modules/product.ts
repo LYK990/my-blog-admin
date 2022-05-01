@@ -4,13 +4,19 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/product',
     name: 'product',
-    component: RouterView,
+    component: RouterView, // 父路由组件路径不能为空
+    meta: {
+      title: '商品'
+    },
     children: [
       {
         path: 'product_list',
         name: 'product_list',
         component: () => import('../../views/product/list/index.vue'),
-      },
+        meta: {
+          title: '商品列表'
+        }
+      },  
       {
         path: 'product_classify',
         name: 'product_classify',

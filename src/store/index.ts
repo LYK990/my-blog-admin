@@ -3,7 +3,7 @@ import { InjectionKey } from 'vue'
 
 export interface State {
   count: number,
-  foo: string
+  isCollapse: boolean
 }
 
 export const key: InjectionKey<Store<State>> = Symbol()
@@ -11,12 +11,13 @@ export const key: InjectionKey<Store<State>> = Symbol()
 export const store = createStore({
   state() {
     return {
-      count: 0
+      count: 1,
+      isCollpase: false
     }
   },
   mutations: {
-    increment(state) {
-      state.count++
+    setIsCollapse(state: any, payload: any) {
+      state.isCollapse = payload
     }
   }
 })

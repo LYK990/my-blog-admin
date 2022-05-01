@@ -1,7 +1,7 @@
 <template>
   <div class="common-layout">
     <el-container>
-      <el-aside width="200px">
+      <el-aside>
         <AppMenuVue></AppMenuVue>
       </el-aside>
       <el-container>
@@ -33,6 +33,7 @@ import AppMenuVue from './components/AppMenu.vue';
     color: var(--el-text-color-primary);
     text-align: center;
     line-height: 200px;
+    width: auto;
   }
 
   .el-main {

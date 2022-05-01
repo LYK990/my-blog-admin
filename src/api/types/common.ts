@@ -4,3 +4,8 @@ export interface ILoginInfo {
   logo_logo: string
   slide: string[]
 }
+
+export interface ILoginResponse {
+  token: string
+  version: string
+}
