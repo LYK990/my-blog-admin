@@ -3,30 +3,38 @@
     active-text-color="#ffd04b"
     background-color="#304156"
     class="el-menu-vertical-demo"
-    default-active="2"
+    default-active="1"
     text-color="#fff"
-    :collpase = "isCollapse"
+    :collapse="false"
+    collapse-transition
     router
   >
-    <el-menu-item index="1">
-      <el-icon><icon-menu /></el-icon>
-      <span>导航一</span>
-    </el-menu-item>
-    <el-menu-item index="2">
-      <el-icon><document /></el-icon>
-      <span>导航二</span>
-    </el-menu-item>
-    <el-menu-item index="3">
-      <el-icon><setting /></el-icon>
-      <span>导航三</span>
-    </el-menu-item>
+    <el-sub-menu index="/article">
+      <template #title>
+        <el-icon><icon-menu /></el-icon>
+        <span>文章管理</span>
+      </template>
+      <el-menu-item index="/article/articleCategory">
+        <span>文章分类</span>
+      </el-menu-item>
+      <el-menu-item index="/article/articleList">
+        <span>文章列表</span>
+      </el-menu-item>
+      <el-menu-item index="/article/article">
+        <span>文章修改</span>
+      </el-menu-item>
+    </el-sub-menu>
   </el-menu>
 </template>
 
 <script lang="ts" setup>
-import { ref } from "@vue/reactivity";
-
-const isCollapse = ref(false)
+import { ref } from "vue";
+import {
+  Document,
+  Menu as IconMenu,
+  Location,
+  Setting,
+} from "@element-plus/icons-vue";
 </script>
 
 <style lang="scss" scoped>
