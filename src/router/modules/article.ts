@@ -30,7 +30,7 @@ const routes: RouteRecordRaw[] = [
         name: 'Article',
         component: () => import('../../views/article/Article.vue'),
         meta: {
-          title: '文章修改'
+          title: '文章编辑'
         }
       },
     ]

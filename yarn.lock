@@ -425,6 +425,11 @@
   "resolved" "https://registry.npmmirror.com/@types/nprogress/-/nprogress-0.2.0.tgz"
   "version" "0.2.0"
 
+"@types/prismjs@^1.26.0":
+  "integrity" "sha512-ZTaqn/qSqUuAq1YwvOFQfVW1AR/oQJlLSZVustdjwI+GZ8kr0MSHBj0tsXPW1EqHubx50gtBEjbPGsdZwQwCjQ=="
+  "resolved" "https://registry.npmmirror.com/@types/prismjs/-/prismjs-1.26.0.tgz"
+  "version" "1.26.0"
+
 "@typescript-eslint/eslint-plugin@^5.19.0":
   "integrity" "sha512-w59GpFqDYGnWFim9p6TGJz7a3qWeENJuAKCqjGSx+Hq/bwq3RZwXYqy98KIfN85yDqz9mq6QXiY5h0FjGQLyEg=="
   "resolved" "https://registry.npmmirror.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-5.19.0.tgz"
@@ -1745,7 +1750,17 @@
   "resolved" "https://registry.npmmirror.com/ignore/-/ignore-4.0.6.tgz"
   "version" "4.0.6"
 
-"ignore@^5.1.1", "ignore@^5.1.8", "ignore@^5.2.0":
+"ignore@^5.1.1":
+  "integrity" "sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ=="
+  "resolved" "https://registry.npmmirror.com/ignore/-/ignore-5.2.0.tgz"
+  "version" "5.2.0"
+
+"ignore@^5.1.8":
+  "integrity" "sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ=="
+  "resolved" "https://registry.npmmirror.com/ignore/-/ignore-5.2.0.tgz"
+  "version" "5.2.0"
+
+"ignore@^5.2.0":
   "integrity" "sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ=="
   "resolved" "https://registry.npmmirror.com/ignore/-/ignore-5.2.0.tgz"
   "version" "5.2.0"

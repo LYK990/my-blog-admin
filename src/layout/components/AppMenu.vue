@@ -20,9 +20,6 @@
       <el-menu-item index="/article/articleList">
         <span>文章列表</span>
       </el-menu-item>
-      <el-menu-item index="/article/article">
-        <span>文章修改</span>
-      </el-menu-item>
     </el-sub-menu>
   </el-menu>
 </template>
