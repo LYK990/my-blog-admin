@@ -1,23 +1,11 @@
 <template>
   <div>
     首页
-    <p>{{$store.state.count}}</p>
-    <el-button>测试按钮</el-button>
-    <Login></Login>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import Login from '@/views/login/index.vue'
-export default defineComponent ({
-  name: '',
-  components: {
-    Login
-  }
-})
+<script lang="ts" setup name="index">
 </script>
-
 <style lang="less" scoped>
 
 </style>
