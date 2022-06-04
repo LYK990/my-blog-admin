@@ -26,7 +26,7 @@ export default defineConfig({
     },
   },
   server: {
-    port: 4000, // 端口号
+    port: 4001, // 端口号
     open: false, // 是否自动打开浏览器
     cors: true, // 允许跨域
     proxy: {

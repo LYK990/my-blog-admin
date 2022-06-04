@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import { store, key } from './store'
 import elementPlus from './plugins/element-plus'
+import 'element-plus/dist/index.css'
 
 // md编辑器
 import VueMarkdownEditor from '@kangc/v-md-editor';
