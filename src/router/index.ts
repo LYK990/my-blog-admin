@@ -3,6 +3,7 @@ import AppLayout from '../layout/AppLayout.vue'
 import article from './modules/article'
 import nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
+import users from './modules/users'
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
@@ -14,7 +15,8 @@ const routes: RouteRecordRaw[] = [
         name: 'home',
         component: () => import('../views/home/index.vue')
       },
-      ...article
+      ...article,
+      ...users
     ]
   },
   {

@@ -23,7 +23,6 @@
     <el-card>
       <el-table
         :header-cell-style="{ background: '#f5f7fa' }"
-        max-height="650"
         :data="tableData"
         :row-style="{ height: '57px' }"
         :cell-style="{ padding: '0' }"
@@ -67,12 +66,7 @@
 
 <script lang="ts" setup name="ArticleList">
 import { ref, onMounted, reactive } from "vue";
-import {
-  queryAllArticle,
-  deleteArticle,
-  updateOneArticle,
-  queryArticleTitle,
-} from "../../api/article";
+import { queryAllArticle, deleteArticle } from "../../api/article";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
@@ -83,10 +77,10 @@ const handleEdit = async (row: any) => {
   // const result = await updateOneArticle({ data });
   // console.log(result)
   router.push({
-    path: './article',
+    path: "./article",
     query: {
-      _id: data
-    }
+      _id: data,
+    },
   });
 };
 const handleDelete = async (row: any) => {

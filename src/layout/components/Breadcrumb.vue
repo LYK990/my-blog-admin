@@ -5,6 +5,7 @@
         v-for="route in routes"
         :key="route.path"
         :to="{ path: route.path }"
+        :class="route.meta.breadWeight ? 'weight' : ''"
         >{{ route.meta.title }}</el-breadcrumb-item
       >
     </el-breadcrumb>
@@ -25,5 +26,12 @@ const routes = computed(() => {
 <style lang="scss" scoped>
 .breadcrumb {
   margin: 10px;
+  .weight {
+    :deep(.el-breadcrumb__inner) {
+      font-weight: 700;
+      color: #303133;
+      text-decoration: none;
+    }
+  }
 }
 </style>

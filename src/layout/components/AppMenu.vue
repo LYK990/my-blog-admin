@@ -21,16 +21,17 @@
         <span>文章列表</span>
       </el-menu-item>
     </el-sub-menu>
+
+    <el-menu-item index="/users">
+      <el-icon><icon-menu /></el-icon>
+      <span>角色管理</span>
+    </el-menu-item>
   </el-menu>
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
 import {
-  Document,
   Menu as IconMenu,
-  Location,
-  Setting,
 } from "@element-plus/icons-vue";
 </script>
 
