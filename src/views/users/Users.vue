@@ -8,8 +8,8 @@
         :cell-style="{ padding: '0' }"
         class="table"
       >
-        <el-table-column prop="id" label="id" />
-        <el-table-column prop="UserName" label="用户名" />
+        <el-table-column prop="_id" label="id" />
+        <el-table-column prop="name" label="用户名" />
         <el-table-column prop="" label="操作">
           <template #default="scope">
             <el-button size="small" @click="handleEdit(scope.row)"
@@ -28,66 +28,62 @@
     <el-drawer
       v-model="drawer"
       title="权限控制"
-      :direction="direction"
+      direction="rtl"
       :before-close="handleClose"
     >
-      <el-tree :props="props" :load="loadNode" lazy show-checkbox />
+      <el-checkbox v-model="article" label="文章" size="large" />
+      <el-checkbox v-model="archive" label="归档" size="large" />
+      <el-checkbox v-model="share" label="分享" size="large" />
+      <template #footer>
+        <el-button size="large" @click="handleCancle()">取消</el-button>
+        <el-button size="large" type="primary" @click="handleSubmit()"
+          >保存</el-button
+        >
+      </template>
     </el-drawer>
   </div>
 </template>
 
 <script lang="ts" setup name="user">
-import { ref } from "vue";
-import type Node from "element-plus/es/components/tree/src/model/node";
-interface Tree {
-  name: string;
-  leaf?: boolean;
-}
-
-const props = {
-  label: "name",
-  children: "zones",
-  isLeaf: "leaf",
-};
-
-const loadNode = (node: Node, resolve: (data: Tree[]) => void) => {
-  if (node.level === 0) {
-    return resolve([{ name: "region" }]);
-  }
-  if (node.level > 1) return resolve([]);
-
-  setTimeout(() => {
-    const data: Tree[] = [
-      {
-        name: "leaf",
-        leaf: true,
-      },
-      {
-        name: "zone",
-      },
-    ];
-
-    resolve(data);
-  }, 500);
-};
+import { ref, onMounted, reactive } from "vue";
+import {
+  postRolePermission,
+  getQueryRole,
+  postDeleteRole,
+} from "../../api/role";
+const article = ref(false);
+const archive = ref(false);
+const share = ref(false);
 const drawer = ref(false);
-const direction = ref("rtl");
 const handleClose = (done: () => void) => {
   drawer.value = false;
 };
-
-const tableData = [
-  {
-    id: "2016-05-03",
-    UserName: "Tom",
-  },
-];
+let tableData = ref([]);
+onMounted(async () => {
+  const result = await getQueryRole();
+  tableData.value = result;
+  console.log(tableData, result);
+});
 const handleEdit = (row: any) => {
   drawer.value = true;
   console.log(row);
 };
-const handleDelete = (row: any) => {
-  console.log(row);
+const handleDelete = async (row: any) => {
+  const data = { _id: row._id };
+  await postDeleteRole(data);
+  window.location.reload();
+};
+const handleCancle = () => {};
+const handleSubmit = async () => {
+  const data = {
+    article: article.value,
+    archive: archive.value,
+    share: share.value,
+  };
+  try {
+    const result = await postRolePermission(data);
+    console.log(result);
+  } catch (error) {}
 };
 </script>
 <style lang="less" scoped>
