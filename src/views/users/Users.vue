@@ -31,7 +31,7 @@
       direction="rtl"
       :before-close="handleClose"
     >
-      <el-checkbox v-model="article" label="文章" size="large" />
+      <el-checkbox v-model="category" label="分类" size="large" />
       <el-checkbox v-model="archive" label="归档" size="large" />
       <el-checkbox v-model="share" label="分享" size="large" />
       <template #footer>
@@ -51,10 +51,12 @@ import {
   getQueryRole,
   postDeleteRole,
 } from "../../api/role";
-const article = ref(false);
+import { ElMessage } from "element-plus";
+const category = ref(false);
 const archive = ref(false);
 const share = ref(false);
 const drawer = ref(false);
+const _id = ref("");
 const handleClose = (done: () => void) => {
   drawer.value = false;
 };
@@ -62,11 +64,10 @@ let tableData = ref([]);
 onMounted(async () => {
   const result = await getQueryRole();
   tableData.value = result;
-  console.log(tableData, result);
 });
 const handleEdit = (row: any) => {
   drawer.value = true;
-  console.log(row);
+  _id.value = row._id;
 };
 const handleDelete = async (row: any) => {
   const data = { _id: row._id };
@@ -75,14 +76,22 @@ const handleDelete = async (row: any) => {
 };
 const handleCancle = () => {};
 const handleSubmit = async () => {
-  const data = {
-    article: article.value,
+  const abpRole = {
+    category: category.value,
     archive: archive.value,
     share: share.value,
   };
+  const data = {
+    abpRole,
+    _id: _id.value,
+  };
   try {
     const result = await postRolePermission(data);
-    console.log(result);
+    if (result.code != 200) return;
+    ElMessage({
+      message: "保存成功",
+      type: "success",
+    });
   } catch (error) {}
 };
 </script>
