@@ -92,6 +92,7 @@ const handleSubmit = async () => {
       message: "保存成功",
       type: "success",
     });
+    drawer.value = false;
   } catch (error) {}
 };
 </script>
